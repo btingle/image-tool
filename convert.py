@@ -87,7 +87,7 @@ ext_dict = {".jpg":"JPEG", ".png":"PNG", ".gif":"GIF", ".ppm":"PPM", ".tiff":"TI
 def get_extension_type(filename):
 	ext_search = re.match(".*(?P<ext>\.\w+)$", filename)
 	if ext_search:
-		ext = ext_search.group(1)
+		ext = ext_search.group("ext")
 		return ext_dict[ext]
 	else:
 		return "JPEG"
