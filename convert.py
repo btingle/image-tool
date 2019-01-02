@@ -103,7 +103,7 @@ if __name__ == "__main__":
 	parser.add_argument("-p", "--pad", metavar="WxH", default=False, dest="p", help="Pad out image to specified size.")
 	parser.add_argument("-d", "--dimensions", action="store_true", default=False, dest="d", help="Print dimensions of image file")
 	parser.add_argument("-x", "--crop", metavar="X:Y", nargs=2, help="Specify top left and bottom right corners of the bounding box you want to crop to.", dest="x")
-	parser.add_argument("-c", "--color", metavar="0xFFFFFF", default="0x000000", help="Sets padding color. Defaults to black")
+	parser.add_argument("-c", "--color", metavar="0xFFFFFF", default="0x000000", dest="c", help="Sets padding color. Defaults to black")
 	args = parser.parse_args()
 
 	image = None
@@ -122,6 +122,8 @@ if __name__ == "__main__":
 	print("Starting dimensions, X:" + str(image.size[0])+ ", Y:" + str(image.size[1]))
 	WIDTH  = image.size[0]
 	HEIGHT = image.size[1]
+	xdim = image.size[0]
+	ydim = image.size[1]
 	if args.r:
 		xmode, xmod, ymode, ymod = None, None, None, None
 		try:
@@ -129,8 +131,6 @@ if __name__ == "__main__":
 		except Exception as e:
 			print("Invalid dimensions syntax!")
 			exit(0)
-		xdim = image.size[0]
-		ydim = image.size[1]
 		if xmode == "scale":
 			xdim *= xmod
 		if xmode == "pixels":
