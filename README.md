@@ -20,4 +20,8 @@ Changed dimensions, X:666, Y:375
 >> convert -p "2*Wx2*H" in.jpg out.png
 Starting dimensions, X:2560, Y:1440
 Changed dimensions, X:5120, Y:2880
+
+>> convert -x "W/4:H/4 (3*W)/4:(3*H)/4" in.jpg out.png
+Starting dimensions, X:2560, Y:1440
+Changed dimensions, X:1280, Y:720
 ```
